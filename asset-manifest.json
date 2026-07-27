@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.d8240b60.chunk.css",
-    "main.js": "/static/js/main.d67f853c.chunk.js",
-    "main.js.map": "/static/js/main.d67f853c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.bd293b17.js",
-    "runtime-main.js.map": "/static/js/runtime-main.bd293b17.js.map",
-    "static/css/2.6947005f.chunk.css": "/static/css/2.6947005f.chunk.css",
-    "static/js/2.3bebf255.chunk.js": "/static/js/2.3bebf255.chunk.js",
-    "static/js/2.3bebf255.chunk.js.map": "/static/js/2.3bebf255.chunk.js.map",
-    "static/js/3.20d9b6ba.chunk.js": "/static/js/3.20d9b6ba.chunk.js",
-    "static/js/3.20d9b6ba.chunk.js.map": "/static/js/3.20d9b6ba.chunk.js.map",
+    "main.css": "/static/css/main.ddaad55a.chunk.css",
+    "main.js": "/static/js/main.06877564.chunk.js",
+    "main.js.map": "/static/js/main.06877564.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2c58c462.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2c58c462.js.map",
+    "static/css/2.e47976d0.chunk.css": "/static/css/2.e47976d0.chunk.css",
+    "static/js/2.0e3ea0f8.chunk.js": "/static/js/2.0e3ea0f8.chunk.js",
+    "static/js/2.0e3ea0f8.chunk.js.map": "/static/js/2.0e3ea0f8.chunk.js.map",
+    "static/js/3.3bc4dc5e.chunk.js": "/static/js/3.3bc4dc5e.chunk.js",
+    "static/js/3.3bc4dc5e.chunk.js.map": "/static/js/3.3bc4dc5e.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.6947005f.chunk.css.map": "/static/css/2.6947005f.chunk.css.map",
-    "static/css/main.d8240b60.chunk.css.map": "/static/css/main.d8240b60.chunk.css.map",
-    "static/js/2.3bebf255.chunk.js.LICENSE.txt": "/static/js/2.3bebf255.chunk.js.LICENSE.txt",
+    "static/css/2.e47976d0.chunk.css.map": "/static/css/2.e47976d0.chunk.css.map",
+    "static/css/main.ddaad55a.chunk.css.map": "/static/css/main.ddaad55a.chunk.css.map",
+    "static/js/2.0e3ea0f8.chunk.js.LICENSE.txt": "/static/js/2.0e3ea0f8.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/tempo.f20b7073.avif",
     "static/media/EntrataAbruzzo.9bf9af89.avif": "/static/media/EntrataAbruzzo.9bf9af89.avif",
     "static/media/Fuori.8e6c8308.avif": "/static/media/Fuori.8e6c8308.avif",
@@ -47,10 +47,10 @@
     "static/media/wine.08e49fdc.jpg": "/static/media/wine.08e49fdc.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bd293b17.js",
-    "static/css/2.6947005f.chunk.css",
-    "static/js/2.3bebf255.chunk.js",
-    "static/css/main.d8240b60.chunk.css",
-    "static/js/main.d67f853c.chunk.js"
+    "static/js/runtime-main.2c58c462.js",
+    "static/css/2.e47976d0.chunk.css",
+    "static/js/2.0e3ea0f8.chunk.js",
+    "static/css/main.ddaad55a.chunk.css",
+    "static/js/main.06877564.chunk.js"
   ]
 }
