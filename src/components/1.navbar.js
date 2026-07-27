@@ -8,20 +8,8 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import ProgressiveImage from "react-progressive-image-loading";
 
-<script src="https://unpkg.com/react-progressive-image@0.1.0/umd/react-progressive-image.min.js"></script>
-
-let imageList=[];
-
 export default class TransNavigationBar extends Component {
-  
-  componentDidMount() {
-    imageList = [angolo]
-    imageList.forEach((image) => {
-        new Image().src = image
-    });
-}
 
- 
   state = {
     headerBreakPoint: 50,
     activeHeader: false,
@@ -62,7 +50,7 @@ export default class TransNavigationBar extends Component {
           <ProgressiveImage
     preview={angolo}
     src={angolo}
-    render={(src) => <img src={src}/>}
+    render={(src) => <img src={src} alt="Ingresso dell'Angolo d'Abruzzo"/>}
 />
           <a type="button" href={PDF} download="MenuAngoloDabruzzo.pdf" className="btn btn-danger wiggle">
                     Scarica il nostro Menu

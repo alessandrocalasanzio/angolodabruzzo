@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { HashRouter as Router,Route,Switch } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import Navbar from './components/1.navbar';
 import ScheletroStoria from './components/4.scheletroStoria';
 import MenuLista from './components/7.menu';
@@ -11,7 +11,6 @@ import Footer from './components/12.footer';
 import Titoli from './components/2.titoli';
 import Titoli1 from './components/3.titoli1';
 import CookieBanner from './components/cookiebanner';
-import Cookie from './components/Cookie.js';
 
 import pane from './img/bread.jpg';
 import carbonara from './img/pasta.jpg';
@@ -25,7 +24,6 @@ import vino from './img/wine.jpg';
 import PDF from "./pdf/MenuAngoloDabruzzo.pdf";
 
 import Loading from './components/Loading';
-import $ from "jquery";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -119,46 +117,10 @@ const menus = [
   { id: 95, titolo: "Spumante Mionetto", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
 ];
 
-const filtroMultilingue = {
-  antipasto: {
-    it: 'antipasto',
-    en: 'appetizers'
-  },
-  primo: {
-    it: 'primo',
-    en: 'first'
-  },
-  secondo: {
-    it: 'secondo',
-    en: 'second'
-  },
-  contorno: {
-    it: 'contorno',
-    en: 'side dish'
-  },
-  dolci: {
-    it: 'dolci',
-    en: 'desserts'
-  },
-  frutta: {
-    it: 'frutta',
-    en: 'fruit'
-  },
-  bevande: {
-    it: 'bevande',
-    en: 'beverages'
-  },
-  vino: {
-    it: 'vino',
-    en: 'wine'
-  }
-};
-
 function App() {
 
   const [state, setState] = useState(menus);
   const ref = useRef(null);
-  const [showCookie, setShowCookie] = useState(false);
 
 
   const filtra = (e) => {
@@ -211,80 +173,36 @@ function App() {
 
 
   const [loading, setLoading] = useState(true);
-  const buttonRef = useRef(null);
-  const [pageReloaded, setPageReloaded] = useState(false);
 
   useEffect(() => {
-    // Imposta pageReloaded a true quando la pagina viene caricata
-    setPageReloaded(true);
-  }, []);
-
-  useEffect(() => {
-    // Se la pagina è stata ricaricata, avvia il timer per simulare il caricamento
-    let timeoutId;
-    if (pageReloaded) {
-      timeoutId = setTimeout(() => {
-        setLoading(false);
-      }, 3300); // Simuliamo un caricamento di 3 secondi
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [pageReloaded]);
-
-  useEffect(() => {
-    // Simula il click del bottone dopo che il caricamento è stato completato
-    if (!loading && buttonRef.current) {
-      buttonRef.current.click();
-    }
-  }, [loading]);
-
-  const handleButtonClick = () => {
-    // Azione da eseguire quando il bottone viene cliccato
-    console.log('Button clicked!');
-  };
-
-
-
-
-  useEffect(() => {
-    setTimeout(() => {
-      ref.current.click();
-    }, 3400);
-  }, []);
-
-
-
-  $(function () {
     AOS.init();
-  });
+  }, []);
 
   useEffect(() => {
-    // Check if the cookie exists
-    const cookie = Cookies.get('isFirstVisit');
-    console.log("Cookie:", cookie); // Verifica se il cookie viene recuperato correttamente
-  
-    // If the cookie exists, skip the preload
-    if (cookie) {
+    // Se il cookie esiste, salta il preload e mostra subito il contenuto
+    if (Cookies.get('isFirstVisit')) {
       setLoading(false);
       return;
     }
-  
-    // Perform the preload
-    setTimeout(() => {
+
+    const loadTimeoutId = setTimeout(() => {
       setLoading(false);
-    }, 3300);
-  
-    // Simulate clicking a button after preload
-    setTimeout(() => {
-      if (buttonRef.current) {
-        buttonRef.current.click();
+    }, 3300); // Simuliamo un caricamento di 3 secondi
+
+    Cookies.set('isFirstVisit', 'true', { expires: 30 }); // Scade dopo 30 giorni
+
+    return () => clearTimeout(loadTimeoutId);
+  }, []);
+
+  useEffect(() => {
+    // Filtra automaticamente su "antipasto" dopo il preload iniziale
+    const clickTimeoutId = setTimeout(() => {
+      if (ref.current) {
+        ref.current.click();
       }
     }, 3400);
-  
-    // Set the isFirstVisit cookie to prevent further preloads
-    Cookies.set('isFirstVisit', 'true', { expires: 30 }); // This will expire after 30 days
+
+    return () => clearTimeout(clickTimeoutId);
   }, []);
 
 
@@ -357,7 +275,7 @@ function App() {
           <div className='clearfix sfondoMenu'>
             <div className="container-fluid">
               {state.map((menu, index) => (
-                <MenuLista key={index} menu={menu} sezione={menu.sezione} />
+                <MenuLista key={menu.id ?? index} menu={menu} sezione={menu.sezione} />
               ))}
             </div>
           </div>

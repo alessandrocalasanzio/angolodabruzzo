@@ -4,14 +4,14 @@ import { useState } from 'react';
 
 function Privacy() {
     const [show, setShow] = useState(false);
-    const [fullscreen, setFullscreen] = useState(true);
+    const fullscreen = true;
 
   
     return (
       <>
-        <a className="colorePrivacy"  type="button" variant="primary" onClick={() => setShow(true)}>
+        <button className="colorePrivacy" type="button" onClick={() => setShow(true)}>
         <i class="fa fa-shield fa-2x" aria-hidden="true"></i>
-        </a>
+        </button>
   
    
 

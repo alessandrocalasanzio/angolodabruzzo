@@ -1,20 +1,19 @@
 import React from "react";
 import Modal from 'react-bootstrap/Modal'
 import { useState } from 'react';
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
 
 function Cookie() {
     const [show, setShow] = useState(false);
-    const [fullscreen, setFullscreen] = useState(true);
+    const fullscreen = true;
 
 
     return ( 
         <>
-        <a className="coloreCookie"  type="button" variant="primary" onClick={() => setShow(true)}>
-        <FontAwesomeIcon icon={faCookieBite} size="2x"  />      
-         </a>
+        <button className="coloreCookie" type="button" onClick={() => setShow(true)}>
+        <FontAwesomeIcon icon={faCookieBite} size="2x"  />
+         </button>
   
    
 
@@ -97,20 +96,20 @@ Si tratta di cookie che non sono ancora stati categorizzati. Stiamo attualmente 
 
 <p>Poiché i mezzi con cui puoi rifiutare i cookie attraverso i controlli del tuo browser web variano da browser a browser, dovresti consultare il menu di aiuto del tuo browser per ulteriori informazioni. Di seguito trovi informazioni su come gestire i cookie sui browser più popolari:</p>
 <ul>
-    <li><a className='cookiea' href="https://support.google.com/chrome/answer/95647#zippy=%2Callow-or-block-cookies" target="_blank">Chrome</a></li>
-    <li><a className='cookiea' href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank">Internet Explorer</a></li>
-    <li><a className='cookiea' href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US" target="_blank">Firefox</a></li>
-    <li><a className='cookiea' href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
-    <li><a className='cookiea' href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd" target="_blank">Edge</a></li>
-    <li><a className='cookiea' href="https://help.opera.com/en/latest/web-preferences/" target="_blank">Opera</a></li>
+    <li><a className='cookiea' href="https://support.google.com/chrome/answer/95647#zippy=%2Callow-or-block-cookies" target="_blank" rel="noreferrer">Chrome</a></li>
+    <li><a className='cookiea' href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noreferrer">Internet Explorer</a></li>
+    <li><a className='cookiea' href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US" target="_blank" rel="noreferrer">Firefox</a></li>
+    <li><a className='cookiea' href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac" target="_blank" rel="noreferrer">Safari</a></li>
+    <li><a className='cookiea' href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd" target="_blank" rel="noreferrer">Edge</a></li>
+    <li><a className='cookiea' href="https://help.opera.com/en/latest/web-preferences/" target="_blank" rel="noreferrer">Opera</a></li>
 </ul>
 
 
 <p>Inoltre, la maggior parte delle reti pubblicitarie ti offre un modo per escludere la pubblicità mirata. Se desideri ottenere ulteriori informazioni, visita:</p>
 <ul>
-    <li><a className='cookiea' href="https://optout.aboutads.info/?c=2&lang=EN" target="_blank">Digital Advertising Alliance</a></li>
-    <li><a className='cookiea' href="https://youradchoices.ca/" target="_blank">Digital Advertising Alliance of Canada</a></li>
-    <li><a className='cookiea' href="https://youronlinechoices.com/" target="_blank">European Interactive Digital Advertising Alliance</a></li>
+    <li><a className='cookiea' href="https://optout.aboutads.info/?c=2&lang=EN" target="_blank" rel="noreferrer">Digital Advertising Alliance</a></li>
+    <li><a className='cookiea' href="https://youradchoices.ca/" target="_blank" rel="noreferrer">Digital Advertising Alliance of Canada</a></li>
+    <li><a className='cookiea' href="https://youronlinechoices.com/" target="_blank" rel="noreferrer">European Interactive Digital Advertising Alliance</a></li>
 </ul>
 
 

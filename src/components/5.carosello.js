@@ -2,7 +2,6 @@ import React from "react";
 import Panorama from "../img/Panorama.avif";
 import angoloGrigio from "../img/angoloGrigio.avif";
 import Carousel from 'react-bootstrap/Carousel';
-import ProgressiveImage from "react-progressive-image-loading";
 
 import murales from "../img/murales.jpg"
 
