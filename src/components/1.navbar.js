@@ -56,23 +56,33 @@ export default class TransNavigationBar extends Component {
                     Scarica il nostro Menu
            </a>
           </div>
-        <nav className={`navbar navbar-expand-lg fixed-top ${this.state.activeHeader ? "test1" : ""}`}>
-        <a className={`navbar-brand ${this.state.activeHeader ? "noImg" : ""}`}href="#1">
-            </a>
+        <Navbar
+          expand="lg"
+          fixed="top"
+          className={this.state.activeHeader ? "test1" : ""}
+          expanded={this.state.navbarExpanded}
+          onToggle={(expanded) => this.setState({
+            navbarExpanded: expanded,
+            activeHeader: expanded ? true : window.scrollY >= this.state.headerBreakPoint
+          })}
+        >
+          <Navbar.Brand className={this.state.activeHeader ? "noImg" : ""} href="#1"></Navbar.Brand>
+          <Navbar.Toggle aria-controls="main-navbar-nav" />
+          <Navbar.Collapse id="main-navbar-nav">
+              <Nav as="ul" className="mx-auto nav-item justify-content-center" onClick={(e) => {
+                if (!e.target.closest('.dropdown-toggle')) {
+                  this.setState({ navbarExpanded: false });
+                }
+              }}>
+                <li className="nav-item">
+                  <AnchorLink  href='#home' className="nav-link contrasto">
+                    Home
+                  </AnchorLink>
+                </li>
 
-          <Navbar> 
-              <Nav className="mx-auto nav-item justify-content-center">
-                <Nav.Item >
-                  <Nav.Link as="li">
-                    <AnchorLink  href='#home' className="nav-link contrasto">
-                      Home
-                    </AnchorLink>
-                  </Nav.Link>
-                </Nav.Item>
 
+                <NavDropdown title={<span className="contrasto">Menu</span>} id="basic-nav-dropdown">
 
-                <NavDropdown title={<span className="nav-link contrasto">Menu</span>} id="basic-nav-dropdown">
-                 
                   <NavDropdown.Item as="li" tag="a" href={PDF} download="MenuAngoloDabruzzo.pdf" className="nav-link-dropdown contrasto">
                    Scarica il nostro menu
                   </NavDropdown.Item>
@@ -85,34 +95,28 @@ export default class TransNavigationBar extends Component {
                 </NavDropdown>
 
 
-                <Nav.Item >
-                  <Nav.Link as="li" >
+                <li className="nav-item">
                   <AnchorLink href='#chisiamo' className="nav-link contrasto">
-                      <nobr>Chi siamo</nobr>
-                    </AnchorLink>
-                  </Nav.Link>
-                </Nav.Item>
+                    <nobr>Chi siamo</nobr>
+                  </AnchorLink>
+                </li>
 
 
-                <Nav.Item  >
-                  <Nav.Link as="li" >
-                    <AnchorLink  href='#galleria' className="nav-link contrasto">
-                      Galleria
-                    </AnchorLink>
-                  </Nav.Link>
-                </Nav.Item>
+                <li className="nav-item">
+                  <AnchorLink  href='#galleria' className="nav-link contrasto">
+                    Galleria
+                  </AnchorLink>
+                </li>
 
-                <Nav.Item >
-                  <Nav.Link as="li">
-                    <AnchorLink  href="#contatti" className="nav-link contrasto" >
-                      Contatti
-                    </AnchorLink>
-                  </Nav.Link>
-                </Nav.Item>
+                <li className="nav-item">
+                  <AnchorLink  href="#contatti" className="nav-link contrasto" >
+                    Contatti
+                  </AnchorLink>
+                </li>
               </Nav>
 
-          </Navbar>
-        </nav>
+          </Navbar.Collapse>
+        </Navbar>
 
         
       </div>

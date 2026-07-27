@@ -3,24 +3,7 @@ import React from "react";
 import Carosello from "./5.carosello";
 import Testocarosello from "./6.testocarosello";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-
-
-
 class ScheletroStoria extends React.Component {
-
-
- 
-
-    componentDidMount(){
-        AOS.init({
-            duration : 1000,
-            once: true,
-            mirror: false
-          })
-    }
 
     render() {
 

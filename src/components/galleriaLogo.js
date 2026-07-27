@@ -74,11 +74,17 @@ const GalleriaLogo = () => {
           ]}>
             {images.map((image, index) => (
               <Carousel.Item key={index}>
-                <LogoLink href={image.link} target="_blank">
+                {image.link ? (
+                  <LogoLink href={image.link} target="_blank" rel="noreferrer">
+                    <Logo>
+                      <img alt="logo" className='imgLogo' src={image.img} />
+                    </Logo>
+                  </LogoLink>
+                ) : (
                   <Logo>
                     <img alt="logo" className='imgLogo' src={image.img} />
                   </Logo>
-                </LogoLink>
+                )}
               </Carousel.Item>
             ))}
           </Carousel>

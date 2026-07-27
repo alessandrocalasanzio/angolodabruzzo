@@ -9,7 +9,7 @@ function Privacy() {
   
     return (
       <>
-        <button className="colorePrivacy" type="button" onClick={() => setShow(true)}>
+        <button className="colorePrivacy" type="button" aria-label="Apri la Privacy Policy" onClick={() => setShow(true)}>
         <i class="fa fa-shield fa-2x" aria-hidden="true"></i>
         </button>
   

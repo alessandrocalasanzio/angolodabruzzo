@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/v4-shims.min.css';
 import { HashRouter as Router } from "react-router-dom";
 import Navbar from './components/1.navbar';
 import ScheletroStoria from './components/4.scheletroStoria';
@@ -175,35 +177,91 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    AOS.init();
-  }, []);
+    if (loading) {
+      return;
+    }
+
+    AOS.init({ duration: 1000, once: true, mirror: false });
+
+    const refreshAos = () => AOS.refresh();
+
+    // I font web possono ancora cambiare le dimensioni del testo dopo l'init
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refreshAos);
+    }
+
+    // Le immagini non ancora caricate al momento dell'init spostano il
+    // contenuto sottostante una volta caricate: senza questo ricalcolo,
+    // le sezioni più in basso (es. Contatti) possono restare nascoste,
+    // perché AOS ne ha calcolato la posizione quando le immagini sopra
+    // occupavano ancora 0px di altezza.
+    const pendingImages = Array.from(document.querySelectorAll('img')).filter(
+      (img) => !img.complete
+    );
+    if (pendingImages.length === 0) {
+      refreshAos();
+    } else {
+      let remaining = pendingImages.length;
+      const onImageSettled = () => {
+        remaining -= 1;
+        if (remaining === 0) {
+          refreshAos();
+        }
+      };
+      pendingImages.forEach((img) => {
+        img.addEventListener('load', onImageSettled, { once: true });
+        img.addEventListener('error', onImageSettled, { once: true });
+      });
+    }
+  }, [loading]);
 
   useEffect(() => {
-    // Se il cookie esiste, salta il preload e mostra subito il contenuto
+    // Tempo minimo per cui resta visibile il messaggio di benvenuto, così
+    // chi visita il sito per la prima volta fa in tempo a leggerlo anche
+    // se la pagina carica molto in fretta.
+    const MIN_WELCOME_MS = 2200;
+    const start = Date.now();
+
+    const revealContent = () => {
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(MIN_WELCOME_MS - elapsed, 0);
+      setTimeout(() => setLoading(false), remaining);
+    };
+
+    // Alle visite successive (cookie già presente) il contenuto compare
+    // appena pronto, senza attesa minima forzata.
     if (Cookies.get('isFirstVisit')) {
       setLoading(false);
       return;
     }
 
-    const loadTimeoutId = setTimeout(() => {
-      setLoading(false);
-    }, 3300); // Simuliamo un caricamento di 3 secondi
-
     Cookies.set('isFirstVisit', 'true', { expires: 30 }); // Scade dopo 30 giorni
 
-    return () => clearTimeout(loadTimeoutId);
+    // Il contenuto viene mostrato non appena il caricamento reale della
+    // pagina (bundle JS/CSS, font) è completo, invece che dopo un tempo
+    // fisso scollegato da cosa sta effettivamente accadendo.
+    if (document.readyState === 'complete') {
+      revealContent();
+    } else {
+      window.addEventListener('load', revealContent, { once: true });
+      return () => window.removeEventListener('load', revealContent);
+    }
   }, []);
 
   useEffect(() => {
-    // Filtra automaticamente su "antipasto" dopo il preload iniziale
+    // Filtra automaticamente su "antipasto" appena il contenuto è visibile
+    if (loading) {
+      return;
+    }
+
     const clickTimeoutId = setTimeout(() => {
       if (ref.current) {
         ref.current.click();
       }
-    }, 3400);
+    }, 100);
 
     return () => clearTimeout(clickTimeoutId);
-  }, []);
+  }, [loading]);
 
 
   return (
@@ -219,6 +277,7 @@ function App() {
         <div>
          <CookieBanner/>
           <Navbar />
+          <main>
           <section id="chisiamo"> </section>
           <Titoli title="CHI SIAMO" />
           <ScheletroStoria />
@@ -234,37 +293,37 @@ function App() {
 
   <div className="row photo-grid card1-tall card1-wide">
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${pane})`, position: "relative" }}>
-      <button ref={ref} className="button" onClick={filtra} value="antipasto" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button ref={ref} className="button" onClick={filtra} value="antipasto" aria-label="Filtra: Antipasto" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>ANTIPASTO</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${carbonara})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="primo" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="primo" aria-label="Filtra: Primo" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>PRIMO</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${carne})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="secondo" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="secondo" aria-label="Filtra: Secondo" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>SECONDO</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${patate})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="contorno" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="contorno" aria-label="Filtra: Contorno" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>CONTORNO</span>
     </div>
   </div>
   <div className="row photo-grid card1-tall card1-wide">
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${dolci})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="dolci" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="dolci" aria-label="Filtra: Dolci" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>DOLCI</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${frutta})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="frutta" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="frutta" aria-label="Filtra: Frutta" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>FRUTTA</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${acqua})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="bevande" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="bevande" aria-label="Filtra: Bevande" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>BEVANDE</span>
     </div>
     <div data-filter="menu" className="card1 imgSize" style={{ backgroundImage: `url(${vino})`, position: "relative" }}>
-      <button className="button" onClick={filtra} value="vino" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <button className="button" onClick={filtra} value="vino" aria-label="Filtra: Vino" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
       <span>VINO</span>
     </div>
   </div>
@@ -275,7 +334,7 @@ function App() {
           <div className='clearfix sfondoMenu'>
             <div className="container-fluid">
               {state.map((menu, index) => (
-                <MenuLista key={menu.id ?? index} menu={menu} sezione={menu.sezione} />
+                <MenuLista key={menu.id !== undefined ? menu.id : `sep-${index}`} menu={menu} sezione={menu.sezione} />
               ))}
             </div>
           </div>
@@ -285,6 +344,7 @@ function App() {
           <section id="contatti"></section>
           <Titoli1 title="CONTATTI" />
           <Contatti />
+          </main>
           <div className="container-fluid footer"><Footer /></div>
         </div>
       }

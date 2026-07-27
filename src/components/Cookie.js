@@ -11,7 +11,7 @@ function Cookie() {
 
     return ( 
         <>
-        <button className="coloreCookie" type="button" onClick={() => setShow(true)}>
+        <button className="coloreCookie" type="button" aria-label="Apri la Cookie Policy" onClick={() => setShow(true)}>
         <FontAwesomeIcon icon={faCookieBite} size="2x"  />
          </button>
   

@@ -1,10 +1,7 @@
 /*IMPORT*/
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Economica:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* I font Google sono caricati da public/index.html */
 
 /*------------------------------------------------------------------------------------------------------*/
 /*COOKIE BANNER*/
@@ -252,10 +249,12 @@ a{
     background-color: white !important;
 }
 
-.navbar-nav {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+@media screen and (min-width: 992px) {
+    .navbar-nav {
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
 }
 
 @media screen and (min-width: 1240px) {
@@ -572,6 +571,15 @@ a{
     }
 }
 
+/* Sotto i 992px il menu si impila verticalmente (hamburger): i margini
+   negativi pensati per la riga orizzontale andrebbero a sovrapporre le
+   voci una sull'altra, quindi qui vengono neutralizzati. */
+@media screen and (max-width: 991px) {
+    .navbar .navbar-nav .nav-link {
+        margin: 0.4rem 0 !important;
+        display: block;
+    }
+}
 
 /*FINE NAVBAR*/
 
@@ -753,6 +761,8 @@ a{
     width: 100%;
     height: 400px;
     max-height: 400px;
+    object-fit: cover;
+    object-position: center;
 }
 
 @media screen and (max-width: 576px) {
@@ -811,9 +821,8 @@ a{
 .imgLogo {
     width: 100%;
     height: 70px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
     box-sizing: border-box;
     z-index: 999;
 }
@@ -822,9 +831,8 @@ a{
     .imgLogo {
         width: 100%;
         height: 50px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        object-fit: cover;
+        object-position: center;
         box-sizing: border-box;
         z-index: 999;
     }
@@ -1070,9 +1078,8 @@ a:hover {
 .imgCarousel {
     width: 100%;
     height: 350px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
     box-sizing: border-box;
     border-radius: 3% !important;
     z-index: 999;
@@ -1365,7 +1372,6 @@ a:hover {
 
 .testSx {
     text-align: left !important;
-    margin-left: -15px !important;
     background-color: black !important;
 
 }
@@ -1505,7 +1511,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    box-shadow: white;
+    background-color: black;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -1542,6 +1548,7 @@ body::-webkit-scrollbar-thumb {
 
 .vlecviname{
     color: rgb(168, 255, 226) !important;
+    text-decoration: underline !important;
 }
 
 .testoCookie{

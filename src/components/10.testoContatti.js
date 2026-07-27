@@ -1,16 +1,7 @@
 import React from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import Table from 'react-bootstrap/Table';
 
 class TestoContatti extends React.Component {
-    componentDidMount(){
-        AOS.init({
-            duration : 500,
-            once: true,
-            mirror: false
-        })
-    }
     render() {
         return (
             <Table borderless data-aos="fade-right" data-aos-mirror='false' data-aos-once='true'>
