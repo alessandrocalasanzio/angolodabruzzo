@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# generatore del menu PDF: artefatti rigenerabili
+menu/build/
+menu/__pycache__/
+menu/_vecchi/

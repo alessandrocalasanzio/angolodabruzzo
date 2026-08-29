@@ -103,9 +103,9 @@ Comportamento voluto (non toccare senza parlarne prima col cliente, gli piace co
 I prezzi stanno in **due posti** e vanno tenuti allineati:
 
 - `src/App.js` → array `menus`, sono le lavagne del sito
-- `../menu/menu-dati.py` → è la sorgente del PDF scaricabile
+- `menu/menu-dati.py` → è la sorgente del PDF scaricabile
 
-La cartella `menu/` sta **fuori da questa repo** (è nella cartella genitrice) e contiene:
+La cartella `menu/` sta dentro questa repo (era nella cartella genitrice: l'ho spostata qui perché il generatore fosse versionato insieme al PDF che produce). Contiene:
 
 - `menu-dati.py` — l'unico file da modificare per cambiare piatti e prezzi del PDF
 - `genera-menu.py` — ricompone il PDF: `python "menu/genera-menu.py"`. Riusa **tali e quali** le copertine (pagine 1 e 3 di `MENU ANGOLO ABRUZZO.pdf`, le foto originali del cliente), genera le pagine di testo in ODF piatto e ricampiona le immagini a 150 dpi (7,5 MB → 1,3 MB)
@@ -114,6 +114,8 @@ La cartella `menu/` sta **fuori da questa repo** (è nella cartella genitrice) e
 I prezzi nel PDF si allineano da soli: ogni riga è `NOME <tabulazione> PREZZO` con tabulazione destra e riempimento punteggiato definiti nello stile, quindi non ci sono puntini da contare a mano. **Non tornare a comporre le righe con caratteri `…`**: Agency FB ha cifre di larghezza diversa (l'"1" è largo la metà del "3") e il risultato viene irregolare.
 
 Dopo aver rigenerato il PDF serve sempre `npm run build`, altrimenti il sito continua a servire la copia vecchia.
+
+`menu/build/`, `menu/__pycache__/` e `menu/_vecchi/` sono in `.gitignore`: sono tutti rigenerabili. `menu/MENU ANGOLO ABRUZZO.pdf` invece **è versionato e serve**: è da lì che il generatore prende le copertine originali.
 
 ## Cosa resta aperto / backlog noto
 
