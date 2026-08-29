@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.c348e2b9.chunk.css",
-    "main.js": "/static/js/main.8f0ba7e1.chunk.js",
-    "main.js.map": "/static/js/main.8f0ba7e1.chunk.js.map",
+    "main.css": "/static/css/main.4edf1402.chunk.css",
+    "main.js": "/static/js/main.30f30629.chunk.js",
+    "main.js.map": "/static/js/main.30f30629.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.6b36a0fa.js",
     "runtime-main.js.map": "/static/js/runtime-main.6b36a0fa.js.map",
     "static/css/2.7720de70.chunk.css": "/static/css/2.7720de70.chunk.css",
@@ -12,13 +12,13 @@
     "static/js/3.7825b2d4.chunk.js.map": "/static/js/3.7825b2d4.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.7720de70.chunk.css.map": "/static/css/2.7720de70.chunk.css.map",
-    "static/css/main.c348e2b9.chunk.css.map": "/static/css/main.c348e2b9.chunk.css.map",
+    "static/css/main.4edf1402.chunk.css.map": "/static/css/main.4edf1402.chunk.css.map",
     "static/js/2.0caa067f.chunk.js.LICENSE.txt": "/static/js/2.0caa067f.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/tempo.f20b7073.avif",
     "static/media/EntrataAbruzzo.9bf9af89.avif": "/static/media/EntrataAbruzzo.9bf9af89.avif",
     "static/media/Fuori.8e6c8308.avif": "/static/media/Fuori.8e6c8308.avif",
     "static/media/LogoVlecvi.28bace76.png": "/static/media/LogoVlecvi.28bace76.png",
-    "static/media/MenuAngoloDabruzzo.5d858166.pdf": "/static/media/MenuAngoloDabruzzo.5d858166.pdf",
+    "static/media/MenuAngoloDabruzzo.c60d5914.pdf": "/static/media/MenuAngoloDabruzzo.c60d5914.pdf",
     "static/media/Panorama.be539445.avif": "/static/media/Panorama.be539445.avif",
     "static/media/angolo.81e13732.avif": "/static/media/angolo.81e13732.avif",
     "static/media/angoloGrigio.4c7d99c3.avif": "/static/media/angoloGrigio.4c7d99c3.avif",
@@ -51,7 +51,7 @@
     "static/js/runtime-main.6b36a0fa.js",
     "static/css/2.7720de70.chunk.css",
     "static/js/2.0caa067f.chunk.js",
-    "static/css/main.c348e2b9.chunk.css",
-    "static/js/main.8f0ba7e1.chunk.js"
+    "static/css/main.4edf1402.chunk.css",
+    "static/js/main.30f30629.chunk.js"
   ]
 }
