@@ -121,6 +121,40 @@ a{
     width: 100%;
 
 }
+
+/* Bottone "Lo Chef Consiglia": due cappelli da chef ai lati, sopra la stessa
+   lavagna usata come sfondo del menu, scurita quel tanto che basta perche' il
+   testo bianco resti leggibile. */
+.sfondoChef{
+    background-image: url("img/chefhat.svg"), url("img/chefhat.svg"),
+                      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                      url("img/blackboard2.avif");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+    background-position: 8% center, 92% center, center center, center center !important;
+    /* misure in px: l'SVG va dimensionato esplicitamente, con "auto" il browser
+       non ricava la larghezza dal solo viewBox. !important perche' .imgSize,
+       dichiarata piu' avanti nel foglio, imporrebbe "cover" su tutti i livelli
+       stirando i cappelli a tutta fascia. */
+    background-size: 68px 63px, 68px 63px, cover, cover !important;
+    height: 100%;
+    width: 100%;
+}
+
+/* Le due fasce a tutta larghezza (scarica il menu / lo chef consiglia) sono
+   piu' basse delle card dei filtri, che restano a 200px. */
+.photo-grid.rowCompleto {
+    grid-auto-rows: 130px;
+}
+
+@media screen and (max-width: 600px) {
+    .photo-grid.rowCompleto {
+        grid-auto-rows: 72px;
+    }
+    .sfondoChef {
+        background-size: 38px 35px, 38px 35px, cover, cover !important;
+        background-position: 5% center, 95% center, center center, center center !important;
+    }
+}
 .fa-solid .fa-user-shield{
     color: white;
 }
@@ -1016,6 +1050,10 @@ a:hover {
 
 .megCentrato {
     width: 100%;
+    /* Le righe del menu sono tabelle in float: senza clear, un titolo di sezione
+       che non sia il primo della lista (es. SECONDI dentro "Lo chef consiglia",
+       o CAFFE' E LIQUORI dentro BEVANDE) si incastra a meta' colonna. */
+    clear: both;
     font-size: 5vw;
     text-align: center;
     position: relative;

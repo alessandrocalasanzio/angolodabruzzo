@@ -10,7 +10,10 @@ class MenuLista extends React.Component {
     return (
 
       <div >
-      <h1 className="megCentrato">{this.props.menu.megatitolo}</h1>
+      {/* Solo le righe che aprono una sezione hanno il titolo: un <h1> vuoto su
+          ogni riga farebbe comunque scattare il clear dei float in App.css,
+          impilando il menu su una colonna sola invece che su due. */}
+      {this.props.menu.megatitolo && <h1 className="megCentrato">{this.props.menu.megatitolo}</h1>}
 
       <Table borderless  className="responsive1 filterDiv">
         <thead>

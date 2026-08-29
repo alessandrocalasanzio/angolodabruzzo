@@ -52,7 +52,7 @@ export default class TransNavigationBar extends Component {
     src={angolo}
     render={(src) => <img src={src} alt="Ingresso dell'Angolo d'Abruzzo"/>}
 />
-          <a type="button" href={PDF} download="MenuAngoloDabruzzo.pdf" className="btn btn-danger wiggle">
+          <a href={PDF} download="MenuAngoloDabruzzo.pdf" rel="noopener" className="btn btn-danger wiggle">
                     Scarica il nostro Menu
            </a>
           </div>
@@ -83,8 +83,13 @@ export default class TransNavigationBar extends Component {
 
                 <NavDropdown title={<span className="contrasto">Menu</span>} id="basic-nav-dropdown">
 
-                  <NavDropdown.Item as="li" tag="a" href={PDF} download="MenuAngoloDabruzzo.pdf" className="nav-link-dropdown contrasto">
-                   Scarica il nostro menu
+                  <NavDropdown.Item as="li" className="nav-link-dropdown">
+                    {/* L'ancora deve stare DENTRO l'item: con as="li" react-bootstrap
+                        renderizza un <li>, e href/download su un <li> non fanno nulla
+                        (il click non scaricava il menu). */}
+                    <a href={PDF} download="MenuAngoloDabruzzo.pdf" rel="noopener" className="nav-link-dropdown contrasto">
+                      Scarica il nostro menu
+                    </a>
                   </NavDropdown.Item>
 
                   <NavDropdown.Item as="li"  className="nav-link-dropdown">

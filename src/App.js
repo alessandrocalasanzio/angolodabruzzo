@@ -35,88 +35,121 @@ import Cookies from 'js-cookie';
 
 
 const menus = [
-  { id: 0, megatitolo: "ANTIPASTI", titolo: "Capocollo all'Abruzzese :", prezzo: "10", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 1, titolo: "Polpettine d'Agnello all'Abruzzese", prezzo: "8", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 3, titolo: "Frittata alla Campagnola", prezzo: "8", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 4, titolo: "Salame Nostrano", prezzo: "10", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 5, titolo: "Prosciutto Crudo", prezzo: "9", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 5.1, titolo: "Ventricina", prezzo: "10", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 6, titolo: "Bresaola Carpacciata", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 7, titolo: "Antipasti Misti della Casa", prezzo: "11", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 8, titolo: "Olive Ascolane", prezzo: "11", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 9, titolo: "Antipasto Sott'olio", prezzo: "10", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 10, titolo: "Crudo al Coltello", prezzo: "11", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 11, titolo: "Burrata", prezzo: "11", sezione: "antipasto", numero: "00", dollaro: "€" },
-  { id: 12, titolo: "Bufala", prezzo: "11", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 0, megatitolo: "ANTIPASTI", titolo: "Capocollo all'Abruzzese", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 1, titolo: "Polpettine d'Agnello all'Abruzzese", prezzo: "9", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 3, titolo: "Frittata alla Campagnola", prezzo: "9", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 4, titolo: "Salame Nostrano", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 5, titolo: "Prosciutto Crudo", prezzo: "13", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 5.1, titolo: "Ventricina", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 6, titolo: "Bresaola Carpacciata", prezzo: "14", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 7, titolo: "Antipasti Misti della Casa", prezzo: "13", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 8, titolo: "Olive Ascolane", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 9, titolo: "Antipasto Sott'olio", prezzo: "12", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 10, titolo: "Crudo al Coltello", prezzo: "13", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 11, titolo: "Burrata", prezzo: "13", sezione: "antipasto", numero: "00", dollaro: "€" },
+  { id: 12, titolo: "Bufala", prezzo: "13", sezione: "antipasto", numero: "00", dollaro: "€" },
   {},
 
-  { id: 13, megatitolo: "PRIMI", titolo: "Tris di chitarra, schiaffoni e gnocchi", prezzo: "14", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 14, titolo: "Zuppa di cardi all’Abruzzese", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 18, titolo: "Maccheroni alla chitarra", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 19, titolo: "Schiaffoni della cuoca", prezzo: "14", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 21, titolo: "Sagne e fagioli all’Abruzzese", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 22, titolo: "Spaghetti alla d’anunzio", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 23, titolo: "Gnocchetti verdi alla casalinga", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 25, titolo: "Tortellini in brodo", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 28, titolo: "Tagliatelle alla casalinga", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 29, titolo: "Gnocchi ai quattro formaggi", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 31, titolo: "Minestrone di verdura", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 32, titolo: "Chitarra alla carbonara", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 34, titolo: "Spaghetti aglio, olio e peperoncino", prezzo: "10", sezione: "primo", numero: "00", dollaro: "€" },
-  { id: 35, titolo: "Maccheroni e melanzane e ricotta", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 13, megatitolo: "PRIMI", titolo: "Tris di chitarra, schiaffoni e gnocchi", prezzo: "16", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 14, titolo: "Zuppa di cardi all’Abruzzese", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 18, titolo: "Maccheroni alla chitarra", prezzo: "15", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 19, titolo: "Schiaffoni della cuoca", prezzo: "16", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 21, titolo: "Sagne e fagioli all’Abruzzese", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 22, titolo: "Spaghetti alla d’Annunzio", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 23, titolo: "Gnocchetti verdi alla casalinga", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 25, titolo: "Tortellini in brodo", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 28, titolo: "Tagliatelle alla casalinga", prezzo: "15", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 29, titolo: "Gnocchi ai quattro formaggi", prezzo: "13", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 31, titolo: "Minestrone di verdura", prezzo: "11", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 32, titolo: "Chitarra alla carbonara", prezzo: "15", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 34, titolo: "Spaghetti aglio, olio e peperoncino", prezzo: "11", sezione: "primo", numero: "00", dollaro: "€" },
+  { id: 35, titolo: "Maccheroni e melanzane e ricotta", prezzo: "15", sezione: "primo", numero: "00", dollaro: "€" },
 
-  { id: 37, megatitolo: "SECONDI", titolo: "Agnello e scamorza alla griglia", prezzo: "19", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 38, titolo: "Grigliata mista all’Abruzzese", prezzo: "19", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 42, titolo: "Costolette d’agnello alla scottadito", prezzo: "19", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 43, titolo: "Scamorza Abruzzese alla griglia", prezzo: "12", sezione: "secondo", numero: "50", dollaro: "€" },
-  { id: 46, titolo: "Polpettine d’agnello con patate", prezzo: "12", sezione: "secondo", numero: "50", dollaro: "€" },
-  { id: 47, titolo: "Vitello tonnato con capperi", prezzo: "13", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 48, titolo: "Carpaccio con grana e rucola", prezzo: "13", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 49, titolo: "Mozzarelline dorate", prezzo: "11", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 55, titolo: "Agnello al forno con patate", prezzo: "19", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 56, titolo: "Arrosticini", prezzo: "13", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 37, megatitolo: "SECONDI", titolo: "Agnello e scamorza alla griglia", prezzo: "21", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 38, titolo: "Grigliata mista all’Abruzzese", prezzo: "21", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 42, titolo: "Costolette d’agnello alla scottadito", prezzo: "21", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 43, titolo: "Scamorza Abruzzese alla griglia", prezzo: "14", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 46, titolo: "Polpettine d’agnello con patate", prezzo: "14", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 47, titolo: "Vitello tonnato con capperi", prezzo: "15", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 48, titolo: "Carpaccio con grana e rucola", prezzo: "16", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 49, titolo: "Mozzarelline dorate", prezzo: "12", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 55, titolo: "Agnello al forno con patate", prezzo: "21", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 56, titolo: "Arrosticini", prezzo: "15", sezione: "secondo", numero: "00", dollaro: "€" },
   { id: 58, titolo: "Tagliata", prezzo: "18/20", sezione: "secondo", numero: "00", dollaro: "€" },
-  { id: 58.1, titolo: "Formaggi", prezzo: "5/8", sezione: "secondo", numero: "00", dollaro: "€" },
+  { id: 58.1, titolo: "Formaggi", prezzo: "6/9", sezione: "secondo", numero: "00", dollaro: "€" },
 
   {},
 
   { id: 62, megatitolo: "CONTORNI", titolo: "Patate Fritte", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
   { id: 63, titolo: "Insalata mista", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
-  { id: 64, titolo: "Insalata di pomodori, finocchi.", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
+  { id: 64, titolo: "Insalata di pomodori, finocchi", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
+  { id: 64.1, titolo: "Carote grattugiate", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
   { id: 65, titolo: "Verdura cotta all’olio", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
-  { id: 66, titolo: "Antipasti/verdura al carello", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
+  { id: 66, titolo: "Antipasti/verdura al carrello", prezzo: "5", sezione: "contorno", numero: "00", dollaro: "€" },
   {},
 
-  { id: 69, megatitolo: "DOLCI", titolo: "Tiramisù", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 70, titolo: "Millefoglie", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 71, titolo: "Gelato crema amaro d'Abruzzo", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 72, titolo: "Semifreddo affogato al caffè", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 73, titolo: "Sorbetto al Limone", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 74, titolo: "Sorbetto mela verde", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 75, titolo: "Tartufo", prezzo: "6", sezione: "dolci", numero: "00", dollaro: "€" },
-  { id: 77, titolo: "Dolci del giorno con gelato", prezzo: "7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 69, megatitolo: "DOLCI", titolo: "Tiramisù", prezzo: "6", sezione: "dolci", numero: "50", dollaro: "€" },
+  { id: 70, titolo: "Millefoglie", prezzo: "6", sezione: "dolci", numero: "50", dollaro: "€" },
+  { id: 71, titolo: "Gelato crema affogato all’amaro d'Abruzzo", prezzo: "7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 72, titolo: "Semifreddo affogato al caffè", prezzo: "7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 73, titolo: "Sorbetto al Limone", prezzo: "6/7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 74, titolo: "Sorbetto mela verde", prezzo: "6/7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 75, titolo: "Tartufo", prezzo: "6/7", sezione: "dolci", numero: "00", dollaro: "€" },
+  { id: 75.1, titolo: "Pannacotta", prezzo: "6", sezione: "dolci", numero: "50", dollaro: "€" },
+  { id: 77, titolo: "Dolci del giorno con gelato", prezzo: "7", sezione: "dolci", numero: "50", dollaro: "€" },
   {},
 
-  { id: 78, megatitolo: "FRUTTA", titolo: "Frutta di stagione", prezzo: "6/7", sezione: "frutta", numero: "00", dollaro: "€" },
-  { id: 79, titolo: "Ananas al Maraschino", prezzo: "6/8", sezione: "frutta", numero: "00", dollaro: "€" },
+  { id: 78, megatitolo: "FRUTTA", titolo: "Frutta di stagione", prezzo: "6,50/7,50", sezione: "frutta", numero: "", dollaro: "€" },
+  { id: 79, titolo: "Ananas al Maraschino", prezzo: "6,50/7,50", sezione: "frutta", numero: "", dollaro: "€" },
 
-  { id: 80, megatitolo: "BEVANDE", titolo: "Acqua minerale (75 cl) ", prezzo: "2", sezione: "bevande", numero: "50", dollaro: "€" },
+  { id: 80, megatitolo: "BEVANDE", titolo: "Acqua minerale (75 cl)", prezzo: "3", sezione: "bevande", numero: "00", dollaro: "€" },
   { id: 81, titolo: "Bibita in lattina", prezzo: "3", sezione: "bevande", numero: "00", dollaro: "€" },
-  { id: 82, titolo: "Birra (66 cl)", prezzo: "6", sezione: "bevande", numero: "00", dollaro: "€" },
+  { id: 82, titolo: "Birra (66 cl)", prezzo: "7", sezione: "bevande", numero: "00", dollaro: "€" },
+
+  { id: 82.1, megatitolo: "CAFFÈ E LIQUORI", titolo: "Cappuccino, camomilla, tè", prezzo: "2", sezione: "bevande", numero: "50", dollaro: "€" },
+  { id: 82.2, titolo: "Caffè corretto", prezzo: "2", sezione: "bevande", numero: "50", dollaro: "€" },
+  { id: 82.3, titolo: "Caffè espresso", prezzo: "1", sezione: "bevande", numero: "50", dollaro: "€" },
+  { id: 82.4, titolo: "Liquori nazionali", prezzo: "4/5", sezione: "bevande", numero: "00", dollaro: "€" },
+  { id: 82.5, titolo: "Liquori esteri", prezzo: "5/6", sezione: "bevande", numero: "00", dollaro: "€" },
+  { id: 82.6, titolo: "Coperto", prezzo: "2", sezione: "bevande", numero: "50", dollaro: "€" },
   {},
 
-  { id: 83, megatitolo: "VINI", titolo: "Vino Casa in Caraffa:1/4 Litro", prezzo: "3", sezione: "vino", numero: "50", dollaro: "€" },
-  { id: 85, titolo: "Vino Casa in Caraffa:1/2 Litro", prezzo: "6", sezione: "vino", numero: "50", dollaro: "€" },
-  { id: 87, titolo: "Vino Casa in Caraffa:1 Litro", prezzo: "10", sezione: "vino", numero: "50", dollaro: "€" },
+  { id: 83, megatitolo: "VINI DELLA CASA IN CARAFFA", titolo: "1/4 Litro", prezzo: "4", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 85, titolo: "1/2 Litro", prezzo: "7", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 87, titolo: "1 Litro", prezzo: "11", sezione: "vino", numero: "00", dollaro: "€" },
 
-  { id: 88, titolo: "Cerasuolo Rosato d’Abruzzo", prezzo: "22/26", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 89, titolo: "Trebbiano d’Abruzzo", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 90, titolo: "Montepulciano Jorio", prezzo: "26", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 91, titolo: "Marina Cvetic’", prezzo: "40", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 92, titolo: "Montepulciano Zaccagnini ", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 93, titolo: "Montepulciano Masciarelli", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 94, titolo: "Montepulciano illuminati", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
-  { id: 95, titolo: "Spumante Mionetto", prezzo: "22", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 90, megatitolo: "VINO IN BOTTIGLIA", titolo: "Montepulciano Jorio", prezzo: "30", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 91, titolo: "Marina Cvetic’", prezzo: "45", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 92, titolo: "Montepulciano Zaccagnini", prezzo: "24", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 93, titolo: "Montepulciano Masciarelli", prezzo: "24", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 94, titolo: "Montepulciano Illuminati", prezzo: "28", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 94.1, titolo: "Vin Santo", prezzo: "15", sezione: "vino", numero: "00", dollaro: "€" },
+  { id: 95, titolo: "Spumante Nazionale Mionetto", prezzo: "24/28", sezione: "vino", numero: "00", dollaro: "€" },
+  {},
+
+  { id: 100, megatitolo: "PRIMI", titolo: "Paccheri alla Giannino", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 101, titolo: "Anelli alla Pecorara", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 102, titolo: "Schiaffoni burrata e zafferano", prezzo: "16", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 103, titolo: "Bucatini all’Amatriciana", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 104, titolo: "Chitarra alla Mugnaia", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 105, titolo: "Tagliatelle al ragù di cinghiale", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 106, titolo: "Chitarra alla carbonara", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+
+  { id: 107, megatitolo: "SECONDI", titolo: "Maialino al forno", prezzo: "21", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 108, titolo: "Porchetta di Campli", prezzo: "20", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 109, titolo: "Filetto di maialino alla Robespierre", prezzo: "20", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 110, titolo: "Coniglio al forno", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 111, titolo: "Pallotte cace e ova", prezzo: "13", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 112, titolo: "Hamburger di pecora", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 113, titolo: "Arrosticini di fegato", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 114, titolo: "Salsiccia di fegato con catalogna", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 115, titolo: "Fiorentina (1 kg)", prezzo: "65", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 116, titolo: "Agnello cace e ova", prezzo: "20", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 117, titolo: "Pecora alla callara", prezzo: "20", sezione: "chef", numero: "00", dollaro: "€" },
+  { id: 118, titolo: "Polpettone con patate", prezzo: "15", sezione: "chef", numero: "00", dollaro: "€" },
+
+  { id: 119, megatitolo: "DOLCI", titolo: "Parrozzo", prezzo: "6", sezione: "chef", numero: "50", dollaro: "€" },
+  { id: 120, titolo: "Soffione", prezzo: "6", sezione: "chef", numero: "50", dollaro: "€" },
 ];
 
 function App() {
@@ -169,6 +202,10 @@ function App() {
     }
     else if (word === 'vino') {
       const filtered = menus.filter(menu => menu.sezione === 'vino');
+      setState(filtered);
+    }
+    else if (word === 'chef') {
+      const filtered = menus.filter(menu => menu.sezione === 'chef');
       setState(filtered);
     }
   }
@@ -285,9 +322,16 @@ function App() {
           <Titoli1 title="MENU" />
           {/*BOTTONI MENU*/}
           <div className="container-fluid">
-  <div className="row photo-grid card1-tall card1-wide">
+  <div className="row photo-grid rowCompleto card1-tall card1-wide">
     <div data-filter="menu" className="cardCompleto imgSize sfondoCompleto sfondoMenuPdf ">
-      <a type="button" className="button posTestomenudw" href={PDF} download="MenuAngoloDabruzzo.pdf" style={{ color: "black" }}>SCARICA IL MENU COMPLETO</a>
+      <a className="button posTestomenudw" href={PDF} download="MenuAngoloDabruzzo.pdf" rel="noopener" style={{ color: "black" }}>SCARICA IL MENU COMPLETO</a>
+    </div>
+  </div>
+
+  <div className="row photo-grid rowCompleto card1-tall card1-wide">
+    <div data-filter="menu" className="cardCompleto imgSize sfondoChef" style={{ position: "relative" }}>
+      <button className="button" onClick={filtra} value="chef" aria-label="Mostra i piatti consigliati dallo chef" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "transparent", border: "none" }}></button>
+      <span>LO CHEF CONSIGLIA</span>
     </div>
   </div>
 
